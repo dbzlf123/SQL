@@ -1,0 +1,19 @@
+https://school.programmers.co.kr/learn/courses/30/lessons/133025?language=oracle
+
+
+//MySQL
+SELECT a.FLAVOR
+FROM FIRST_HALF a JOIN ICECREAM_INFO b ON a.FLAVOR = b.FLAVOR
+WHERE a.TOTAL_ORDER > 3000 and b.INGREDIENT_TYPE in('fruit_based')
+ORDER BY a.TOTAL_ORDER DESC
+
+
+
+//Oracle
+SELECT a.FLAVOR
+FROM FIRST_HALF a JOIN ICECREAM_INFO b ON a.FLAVOR = b.FLAVOR
+WHERE a.TOTAL_ORDER > 3000 and b.INGREDIENT_TYPE in('fruit_based')
+ORDER BY a.TOTAL_ORDER DESC
+
+
+간단한 문제라 차이점 없음
