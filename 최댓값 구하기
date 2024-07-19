@@ -1,0 +1,19 @@
+//https://school.programmers.co.kr/learn/courses/30/lessons/59415?language=oracle
+
+
+//MySQL
+SELECT DATETIME
+FROM ANIMAL_INS
+ORDER BY DATETIME DESC
+LIMIT 1
+
+
+//Oracle
+SELECT  DATETIME
+FROM
+(
+    SELECT DATETIME
+    FROM ANIMAL_INS
+    ORDER BY DATETIME DESC
+)
+WHERE rownum= 1
