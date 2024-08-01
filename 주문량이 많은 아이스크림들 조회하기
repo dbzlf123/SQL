@@ -1,0 +1,34 @@
+//https://school.programmers.co.kr/learn/courses/30/lessons/133027?language=oracle
+
+
+MySQL
+
+SELECT a.FLAVOR
+FROM  FIRST_HALF a
+JOIN(
+    SELECT FLAVOR, sum(TOTAL_ORDER) as July_Order
+    FROM JULY
+    GROUP BY FLAVOR
+) b
+On a.FLAVOR = b.FLAVOR
+ORDER BY TOTAL_ORDER + July_Order DESC
+LIMIT 3;
+
+
+
+Oracle
+
+SELECT FLAVOR
+FROM (
+    SELECT 
+        a.FLAVOR,
+        (a.TOTAL_ORDER + b.July_Order) AS Total_Orders_Sum
+    FROM FIRST_HALF a
+    JOIN (
+        SELECT FLAVOR, SUM(TOTAL_ORDER) AS July_Order
+        FROM JULY
+        GROUP BY FLAVOR
+    ) b ON a.FLAVOR = b.FLAVOR
+    ORDER BY Total_Orders_Sum DESC
+)
+WHERE ROWNUM <= 3;
