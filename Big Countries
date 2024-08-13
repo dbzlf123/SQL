@@ -1,0 +1,7 @@
+//https://leetcode.com/problems/big-countries/description/
+
+MySQL, Oracle
+
+SELECT name, Population, area
+FROM World
+WHERE area >= 3000000 or Population >= 25000000
