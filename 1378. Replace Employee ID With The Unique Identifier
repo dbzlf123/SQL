@@ -1,0 +1,7 @@
+//https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/description/
+
+
+
+
+SELECT IF(b.unique_id = NULL, null, b.unique_id) as unique_id, a.name
+FROM Employees a LEFT JOIN EmployeeUNI b ON a.id = b.id
