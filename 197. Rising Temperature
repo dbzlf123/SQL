@@ -1,0 +1,30 @@
+https://leetcode.com/problems/rising-temperature/description/
+
+
+//MySQL
+SELECT id
+FROM (
+    SELECT
+        id,
+        temperature,
+        recordDate,
+        LAG(temperature) OVER (ORDER BY recordDate) AS previous_temperature,
+        LAG(recordDate) OVER (ORDER BY recordDate) AS previous_recordDate
+    FROM Weather
+) AS subquery
+WHERE DATEDIFF(recordDate, previous_recordDate) = 1 and temperature > previous_temperature;
+
+
+//Oracle
+
+SELECT id
+FROM (
+    SELECT
+        id,
+        temperature,
+        recordDate,
+        LAG(temperature) OVER (ORDER BY recordDate) AS previous_temperature,
+        LAG(recordDate) OVER (ORDER BY recordDate) AS previous_recordDate
+    FROM Weather
+) subquery
+WHERE temperature > previous_temperature and (recordDate - previous_recordDate) = 1;
