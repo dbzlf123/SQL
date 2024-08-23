@@ -1,0 +1,12 @@
+//https://leetcode.com/problems/managers-with-at-least-5-direct-reports/description/
+
+
+SELECT a.name
+FROM Employee a
+JOIN (
+    SELECT managerId
+    FROM Employee
+    WHERE managerId IS NOT NULL
+    GROUP BY managerId
+    HAVING COUNT(*) >= 5
+) b ON a.id = b.managerId;
